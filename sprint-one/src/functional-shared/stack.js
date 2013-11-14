@@ -22,10 +22,10 @@ var stackMethods = {
 
   push: function(value){
     this.length++;
-  }
+  },
 
-  // pop: function(){
-  //   this.length && this.length--;
-  //   return this.storage[length];
-  // }
+  pop: function(){
+    this.length && this.length--;
+    return this.storage[length];
+  }
 };
