@@ -9,15 +9,15 @@ var makeStack = function() {
 
   // Implement the methods below
 
-  instance.push = stackMethods.push;
-  instance.size = stackMethods.size;
-  instance.pop = stackMethods.pop;
+  // instance.push = stackMethods.push;
+  // instance.size = stackMethods.size;
+  // instance.pop = stackMethods.pop;
 
   return instance;
 };
 
 var stackMethods = {
-    size: function(){
+  size: function(){
     return this.length;
   },
 
