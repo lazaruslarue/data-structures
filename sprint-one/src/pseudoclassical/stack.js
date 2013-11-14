@@ -13,3 +13,4 @@ Stack.prototype.pop = function(){
     return this.storage[this.length];
 };
 
+var newStack = new Stack();

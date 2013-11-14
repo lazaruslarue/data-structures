@@ -1,10 +1,9 @@
 var Queue = function() {
   // Hey! Copy your code from src/functional-shared/queue.js and paste it here
-  var instance = new Queue ;
 
   // Use an object with numeric keys to store values
-  instance.storage = {};
-  instance.length = 0;
+  this.storage = {};
+  this.length = 0;
   // Implement the methods below
 
 
@@ -12,30 +11,24 @@ var Queue = function() {
   // instance.enqueue = queueMethods.enqueue;
 
   // instance.dequeue = queueMethods.dequeue;
-
-
-  return instance;
 };
 
-var queueMethods = {
-  size: function(){
+Queue.prototype.size = function(){
     return this.length;
-  },
-
-  enqueue: function(value){
+};
+Queue.prototype.enqueue = function(value){
     this.storage[this.length++] = value;
-  },
+};
 
-  dequeue: function(){
-    this.length && this.length--;
-    var temp = this.storage[0];
-    delete this.storage[0];
-    for(var k in this.storage) {
-      var newKey = k-1;
-      if (newKey > -1) {
-        this.storage[newKey] = this.storage[k];
-      }
+Queue.prototype.dequeue = function(){
+  this.length && this.length--;
+  var temp = this.storage[0];
+  delete this.storage[0];
+  for(var k in this.storage) {
+    var newKey = k-1;
+    if (newKey > -1) {
+      this.storage[newKey] = this.storage[k];
     }
-    return temp;
   }
+  return temp;
 };
