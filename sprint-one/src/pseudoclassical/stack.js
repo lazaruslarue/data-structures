@@ -14,3 +14,22 @@ Stack.prototype.pop = function(){
 };
 
 var newStack = new Stack();
+
+// Stack.prototype = {
+
+//   pop: function(){
+//     this.length && this.length--;
+//     return this.storage[this.length];
+//   },
+
+//   push: function(value){
+//       this.storage[this.length++] = value;
+//   },
+
+//   size: function(){
+//       return this.length;
+//   },
+//   constructor: function(){
+//     return new Stack();
+//   }
+// };
