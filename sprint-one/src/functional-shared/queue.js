@@ -29,15 +29,14 @@ var queueMethods = {
   dequeue: function(){
     this.length && this.length--;
     var temp = this.storage[0];
-    delete this.storage[0] ;
-    _.each(this.storage,function(val,key) {
-      var newKey = key-1;
+    delete this.storage[0];
+    for(var k in this.storage) {
+      var newKey = k-1;
       if (newKey > -1) {
-        this.storage[newKey] = val;
+        this.storage[newKey] = this.storage[k];
       }
-    });
+    }
     return temp;
   }
-
 };
 
