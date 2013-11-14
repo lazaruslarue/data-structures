@@ -21,11 +21,11 @@ var stackMethods = {
   },
 
   push: function(value){
-    this.length++;
+    this.storage[this.length++] = value;
   },
 
   pop: function(){
     this.length && this.length--;
-    return this.storage[length];
+    return this.storage[this.length];
   }
 };

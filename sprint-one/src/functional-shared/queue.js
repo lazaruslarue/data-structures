@@ -33,5 +33,16 @@ var makeQueue = function(){
 };
 
 var queueMethods = {
-  
+
 };
+
+
+// var temp = this.storage[0];
+//     delete this.storage[0];
+//     _.each(this.storage, function(v,k) {
+//       var newKey = k-1;
+//       if (newKey > -1) {
+//         this.storage[newKey] = v;
+//       }
+//     });
+//     return temp;
