@@ -27,10 +27,14 @@ var queueMethods = {
   },
 
   dequeue: function(){
+    // debugger;
     this.length && this.length--;
     var temp = this.storage[0];
     delete this.storage[0];
-    _.each(this.storage, function(val, key){
+    // var test = storage;
+    var thisTest = function(){return this.storage}();
+    console.log(thisTest, ' <--thisTest, this.storage ---> ',this.storage);
+    _.each(thisTest, function(val, key){
       var newKey = key-1;
       if (newKey > -1) {
         this.storage[newKey] = val;
