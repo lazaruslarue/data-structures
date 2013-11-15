@@ -95,6 +95,17 @@ describe("contains tests...", function() {
     linkedList.addToTail(3);
     linkedList.addToTail(2);
   });
-});
+
+  it("should contain the added values", function() {
+    expect(linkedList.contains(1)).toEqual(true);
+    expect(linkedList.contains(4)).toEqual(true);
+    expect(linkedList.contains(3)).toEqual(true);
+    expect(linkedList.contains(2)).toEqual(true);
+  });
+
+  it("should not contain things that weren't added", function() {
+    expect(linkedList.contains(999)).toEqual(false);
+  });
+}); 
 
 });
