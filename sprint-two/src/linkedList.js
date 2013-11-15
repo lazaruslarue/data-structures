@@ -9,10 +9,13 @@ var makeLinkedList = function(){
     if ( !this.head ) {
       this.head = new makeNode(value);
       this.tail = this.head;
-    } else {
-      this.tail.next = this.tail;
-      this.tail = new makeNode(value);
     }
+
+    // else {
+    //   this.tail.next = new makeNode(value);
+    // }
+
+
     // does the list have a tail?
     // if yes,
     // if yes, make list.tail = 'value'
