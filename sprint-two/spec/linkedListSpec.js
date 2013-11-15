@@ -10,6 +10,10 @@ describe("linkedList", function() {
     expect(Object.keys(linkedList)).toContain("tail");
   });
 
+  it("should not have a 'null' head", function() {
+    expect(linkedList.head).not.toEqual(null);
+  });
+
   it("should have methods named 'addToTail', 'removeHead', and 'contains'", function() {
     expect(linkedList.addToTail).toEqual(jasmine.any(Function));
     expect(linkedList.removeHead).toEqual(jasmine.any(Function));
