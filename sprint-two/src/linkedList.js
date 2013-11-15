@@ -1,6 +1,7 @@
 // Note: don't use an array to do this.
 var makeLinkedList = function(){
   var list = {};
+ 
   list.head = null;
   list.tail = null;
 
@@ -9,7 +10,7 @@ var makeLinkedList = function(){
   };
 
   list.removeHead = function(){
-
+    this.head = this.head.next;
   };
 
   list.contains = function(value){

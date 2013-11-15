@@ -5,13 +5,17 @@ describe("linkedList", function() {
     linkedList = makeLinkedList();
   });
 
+
+
+
   it("should have a head and tail", function() {
     expect(Object.keys(linkedList)).toContain("head");
     expect(Object.keys(linkedList)).toContain("tail");
   });
-
-  it("should not have a 'null' head", function() {
+/* if it has nodes inside... then: */
+  it("should not have a 'null' head or tail (if there's anything inside it)", function() {
     expect(linkedList.head).not.toEqual(null);
+    expect(linkedList.tail).not.toEqual(null);
   });
 
   it("should have methods named 'addToTail', 'removeHead', and 'contains'", function() {
