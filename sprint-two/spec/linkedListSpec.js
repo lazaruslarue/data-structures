@@ -63,4 +63,29 @@ describe("linkedList", function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  describe("removeHead tests",function(){
+
+    it("should return null if no nodes", function(){
+      expect(linkedList.removeHead()).toEqual(null);
+    });
+
+    it("should return one node", function(){ 
+      linkedList().addToTail(12345);
+      expect(linkedList.removeHead()).toEqual(12345);
+    });
+
+    it("should return one node, then no nodes", function(){
+      linkedList().addToTail(12345);
+      expect(linkedList.removeHead()).toEqual(12345);
+      expect(linkedList.removeHead()).toEqual(null);
+    });
+
+    it("should return nodes in order", function(){
+      linkedList().addToTail(12345);
+      linkedList().addToTail(54321);
+      expect(linkedList.removeHead()).toEqual(12345);
+      expect(linkedList.removeHead()).toEqual(54321);
+    });
+  })
+
 });
