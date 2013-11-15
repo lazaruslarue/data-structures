@@ -31,9 +31,20 @@ describe("linkedList", function() {
     it("should have a tail with value 13579 after addToTail on empty list", function() {
       expect(linkedList.tail.value).toEqual(13579);
     });
+    describe("adding a second node to tail test", function() {
+      beforeEach(function() {
+        linkedList.addToTail('hobo');
+      });
 
+      it("should have a tail with the value of 'hobo'", function() {
+        expect(linkedList.tail.value).toEqual('hobo');
+        expect(linkedList.tail.value.next).toEqual(null);
+      });
 
-
+      it("should not change the head when we add a tail to a list", function(){
+        expect(linkedList.head.value).toEqual(13579);
+      });
+    });
   });
 
   it("should have methods named 'addToTail', 'removeHead', and 'contains'", function() {
