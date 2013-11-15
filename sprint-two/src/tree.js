@@ -3,12 +3,14 @@ var makeTree = function(){
   newTree.value = undefined;
   newTree.children = undefined;
 
+  newTree.addChild = treeMethods.addChild;
   return newTree;
 };
 
 var treeMethods = {};
 
-treeMethods.addChild = function(){
+treeMethods.addChild = function(value){
+  this.children = [];
 };
 
 treeMethods.contains = function(){
