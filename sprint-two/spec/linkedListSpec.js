@@ -29,7 +29,7 @@ describe("linkedList", function() {
     });
 
     it("should have a tail with value 13579 after addToTail on empty list", function() {
-      expect(linkedList.addToTail).toEqual(13579);
+      expect(linkedList.tail.value).toEqual(13579);
     });
 
 
