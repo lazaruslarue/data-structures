@@ -31,15 +31,24 @@ describe("linkedList", function() {
     it("should have a tail with value 13579 after addToTail on empty list", function() {
       expect(linkedList.tail.value).toEqual(13579);
     });
-    describe("adding a second node to tail test", function() {
+    describe("adding more nodes to tail test", function() {
       beforeEach(function() {
-        linkedList.addToTail('hobo');
+        linkedList.addToTail('second');
+        linkedList.addToTail('third');
       });
 
-      it("should have a tail with the value of 'hobo'", function() {
-        expect(linkedList.tail.value).toEqual('hobo');
-        expect(linkedList.tail.value.next).toEqual(null);
+      it("head.next should be second",function() {
+        expect(linkedList.head.next.value).toEqual('second');
       });
+
+      it("should have a tail with the value of 'third'", function() {
+        expect(linkedList.tail.value).toEqual('third');
+      });
+
+      it("linkedList.head.next.next.value to equal 'third' ", function() {
+        expect(linkedList.head.next.next.value).toEqual('third');
+      });
+
 
       it("should not change the head when we add a tail to a list", function(){
         expect(linkedList.head.value).toEqual(13579);
