@@ -66,7 +66,7 @@ describe("linkedList", function() {
   describe("removeHead tests",function(){
 
     it("should return null if no nodes", function(){
-      expect(linkedList.removeHead()).toEqual(null);
+      expect(linkedList.removeHead()).toBeNull();
     });
 
     it("should return one node", function(){ 
@@ -86,6 +86,6 @@ describe("linkedList", function() {
       expect(linkedList.removeHead()).toEqual(12345);
       expect(linkedList.removeHead()).toEqual(54321);
     });
-  })
+  });
 
 });

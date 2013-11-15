@@ -19,7 +19,13 @@
     };
 
     list.removeHead = function(){
-      this.head = this.head.next;
+      if (this.head) {
+        var temp = this.head.value;
+        this.head = this.head.next;
+        return temp;
+      } else {
+        return null;
+      }
     };
 
     list.contains = function(value){
@@ -35,3 +41,4 @@
 
     return node;
   };
+
