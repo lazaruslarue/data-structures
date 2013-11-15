@@ -12,4 +12,18 @@ describe("tree", function() {
   });
 
   // Add more tests here to test the functionality of tree.
+  describe("children array", function() {
+    beforeEach(function() {
+      tree.addChild(1);
+      tree.addChild(2);
+    });
+
+    it("should have an array of children", function() {
+      expect(Array.isArray(tree.children)).toEqual(true);
+    });
+
+    it("should have an array w/ length 2", function(){
+      expect(tree.children.length).toEqual(2);
+    });
+  });
 });
