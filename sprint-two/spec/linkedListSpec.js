@@ -69,7 +69,7 @@ describe("linkedList", function() {
       expect(linkedList.removeHead()).toBeNull();
     });
 
-    it("should return the added node", function(){ 
+    it("should return the added node", function(){
       linkedList.addToTail(12345);
       expect(linkedList.removeHead()).toBe(12345);
     });
@@ -87,5 +87,14 @@ describe("linkedList", function() {
       expect(linkedList.removeHead()).toEqual(54321);
     });
   });
+
+describe("contains tests...", function() {
+  beforeEach(function() {
+    linkedList.addToTail(1);
+    linkedList.addToTail(4);
+    linkedList.addToTail(3);
+    linkedList.addToTail(2);
+  });
+});
 
 });

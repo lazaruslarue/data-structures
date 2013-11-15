@@ -29,6 +29,14 @@
     };
 
     list.contains = function(value){
+      var tempHead = arguments[1] || list.head;
+      if ( tempHead.value === value ) {
+        return true;
+      } else if ( tempHead.next ) {
+        return this.contains(value, tempHead.next);
+      } else {
+        return false;
+      }
     };
 
     return list;
