@@ -1,6 +1,10 @@
 var HashTable = function(){
   this._limit = 8;
 
+  this._size = 0;
+
+
+
   // Use a limited array to store inserted elements.
   // It'll keep you from using too much space. Usage:
   //
@@ -15,21 +19,12 @@ var HashTable = function(){
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
   var result = [];
+  var bucket = this._storage.get(i) || []; // yaya! here's a thing that points to the thing
 
   if (this._storage.get(i)) {
     if (this._storage.get(i).length > 3) {
       console.log("it's too big", this);
-      var bigger = this.makeLimitedArray(this._limit * 2);
-      // get each stack from storage
-      this._storage.each(function(stack, key, bigger) {
-      // get every value in stack
-        for (var i = 0; i < stack.length; i++) {
-          // bigger.insert(value, value)
-          bigger.insert(stack[i][0], stack[i][1]);
-        }
-      });
-      // make storage equal to bigger
-      this._storage = bigger;
+      this.resize(this._limit * 2);
     }
     result = this._storage.get(i);
     result.push([k, v]);
@@ -42,15 +37,31 @@ HashTable.prototype.insert = function(k, v){
 
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  for (var j in  this._storage.get(i)) {
-    if (this._storage.get(i)[j][0] === k) {
-      return this._storage.get(i)[j][1];
+  var bucket = this._storage.get(i) || [];
+  for (var j in  bucket) {
+    var pair = bucket[j]
+    if (pair[0] === k) {
+      return v;
     }
   }
+  return null; // needs to be here
 };
 
-HashTable.prototype.remove = function(){
+HashTable.prototype.remove = function(k){
+  // splice is helpful here
+};
 
+HashTable.prototype.resize = function(newLimit){
+  var oldStorage = this._storage;
+  var this._limit = makeLimitedArray(newLimit);
+  
+  var bigger = new makeLimitedArray(this._limit * 2);
+    this._storage.each(function(stack, key, bigger) {
+      for (var i = 0; i < stack.length; i++) {
+        bigger.insert(stack[i][0], stack[i][1]);
+      }
+    });
+  
 };
 
 
