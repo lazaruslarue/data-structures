@@ -34,8 +34,8 @@ describe("tree", function() {
     });
 
     it("should iterate over all the added children", function() {
-      expect(children.contains('child1')).toEqual(true);
-      expect(children.contains('child2')).toEqual(true);
+      expect(tree.contains('child1')).toEqual(true);
+      expect(tree.contains('child2')).toEqual(true);
     });
   });
 });
