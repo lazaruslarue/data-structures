@@ -22,4 +22,16 @@ describe("hashTable", function() {
   });
 
   // add more tests!
+  it("shouldn't ever fill up", function() {
+    
+    for (var i = 0; i < 1000; i++) {
+      hashTable.insert(i , i);
+    }
+    for (var j = 0; j < 1000; j++) {
+      console.log(j);
+      expect(hashTable.retrieve(j)).toEqual(j);
+      console.log(hashTable.retrieve(j));
+    }
+  });
+
 });
