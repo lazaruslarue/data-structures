@@ -26,4 +26,16 @@ describe("tree", function() {
       expect(tree.children.length).toEqual(2);
     });
   });
+
+  describe("investigating the .contains method", function() {
+    beforeEach(function() {
+      tree.addChild('child1');
+      tree.addChild('child2');
+    });
+
+    it("should iterate over all the added children", function() {
+      expect(children.contains('child1')).toEqual(true);
+      expect(children.contains('child2')).toEqual(true);
+    });
+  });
 });
