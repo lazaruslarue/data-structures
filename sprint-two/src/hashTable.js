@@ -16,7 +16,8 @@ HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
   var result = [];
   if (this._storage.get(i)) {
-    result.push(k, v);
+    result = this._storage.get(i);
+    result.push([k, v]);
     this._storage.set(i, result);
   } else {
     result.push([k, v]);
@@ -25,16 +26,12 @@ HashTable.prototype.insert = function(k, v){
 };
 
 HashTable.prototype.retrieve = function(k){
-  // var i = getIndexBelowMaxForKey(k, this._limit);
-  // var storeIndex = this._storage.get(i);
-  // // if (storeIndex.length > 1) 
-  // for (var j = 0; j < storeIndex.length ; j++) {
-  //   if (storeIndex[j] === k) {
-  //     return storeIndex[j];
-  //   } else {
-  //     return "get outta here";
-  //   }
-  // }
+  var i = getIndexBelowMaxForKey(k, this._limit);
+  for (var j in  this._storage.get(i)) {
+    if (this._storage.get(i)[j][0] === k) {
+      return this._storage.get(i)[j][1];
+    }
+  }
 };
 
 HashTable.prototype.remove = function(){
