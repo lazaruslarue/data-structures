@@ -6,10 +6,12 @@ var makeSet = function(){
 
 var setPrototype = {};
 
-setPrototype.add = function(){
+setPrototype.add = function(val){
+  this._storage[val] = Object.create(makeSet);
 };
 
 setPrototype.contains = function(){
+
 };
 
 setPrototype.remove = function(){
