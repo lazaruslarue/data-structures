@@ -31,11 +31,16 @@ describe("tree", function() {
     beforeEach(function() {
       tree.addChild('child1');
       tree.addChild('child2');
+      tree.children[0].addChild('child3');
     });
+
 
     it("should iterate over all the added children", function() {
       expect(tree.contains('child1')).toEqual(true);
       expect(tree.contains('child2')).toEqual(true);
+      expect(tree.children[0].contains('child3')).toEqual(true);
+      expect(tree.children[1].contains('child3')).toEqual(false);
+      expect(tree.contains('child3')).toEqual(true);
     });
   });
 });

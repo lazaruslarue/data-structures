@@ -33,7 +33,7 @@
       if ( tempHead.value === value ) {
         return true;
       } else if ( tempHead.next ) {
-        return this.contains(value, tempHead.next);
+        return this.tempHead.contains(value);
       } else {
         return false;
       }
